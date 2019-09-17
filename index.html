@@ -6,6 +6,21 @@
 
     <body>
         <script>
+
+            let playArray = ["Rock","Paper","Scissors"];
+
+            function computerPlay(){
+                let selectRandom = Math.floor(Math.random()*playArray.length);
+                let elementSelected = playArray[selectRandom];
+                //return selectRandom;
+                console.log("Computer chose : "+ elementSelected);
+
+            }
+
+
+            computerPlay();
+
+
             
         </script>
 
