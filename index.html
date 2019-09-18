@@ -27,8 +27,22 @@
             }
 
 
-            console.log('Computer chose: '+ computerPlay());
+            /*console.log('Computer chose: '+ computerPlay()); --->this one caused the
+               confussion, because the computerPlay log display not always matched the
+               option selected in playRound. It's like if the computerPlay run twice,
+               the first one was showed in the console.log('Computer chose: '+ computerPlay());
+               and the second was the one used for the playRound*/
 
+
+                //ANSWER GIVEN FROM STACKOVERFLOW
+               /*/all the if/else are fine ... the issue is, at the top of the code you 
+               run computerPlay() to output the computer choice, then later you run it 
+               again to determine a winner ... not often will the displayed choice equal 
+               the checked choice – Jaromanda X */
+
+               //EL console.log('Computer chose: '+ computerPlay()); Podría moverse o 
+               //dentro de la función o debajo de const computerSelection = computerPlay();
+               //pero cambiándolo por console.log('Computer chose: ' + computerSelection);
 
             //Play round between humand and computer
 
@@ -36,7 +50,9 @@
 	            
                 //Change to lowercase
                 let player = playerSelection.toLowerCase();
+                console.log("Player chose : "+player);
                 let computer = computerSelection.toLowerCase();
+                console.log("Computer chose : "+computer);
 
 
                 //If player chooses rock
@@ -62,7 +78,7 @@
 
             }
 
-            const playerSelection = 'Paper';
+            const playerSelection = 'scissors';
             const computerSelection = computerPlay();
             console.log(playRound(playerSelection, computerSelection));
 
