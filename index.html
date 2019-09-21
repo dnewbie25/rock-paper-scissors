@@ -11,6 +11,12 @@
 
            function game(){
 
+            let playerScore = 0; //Initialization of scores to 0
+            let computerScore = 0;
+
+            for (let attempt = 0;attempt<5;attempt++){
+
+            
             function computerPlay(){
                 
                 
@@ -58,29 +64,57 @@
                 //If player chooses rock
                 if (player === 'rock'){
                     if(computer === 'rock'){return 'It\'s a tie. Try again'}
-                    else if(computer === 'paper'){return 'You loose. Paper beats Rock'}
-                    else{return 'You win. Rock beats scissors'}
+                    else if(computer === 'paper'){console.log('You loose. Paper beats Rock');  computerScore++;}
+                    else{console.log('You win. Rock beats scissors');  playerScore++;}
 
                 }
                 //If player chooses paper
                 else if (player === 'paper'){
                     if(computer === 'paper'){return 'It\'s a tie. Try again'}
-                    if(computer === 'scissors'){return 'You loose. Scissors beats Paper'}
-                    else{return 'You win. Paper beats Rock'}
+                    if(computer === 'scissors'){console.log('You loose. Paper beats Rock');  computerScore++;}
+                    else{console.log('You win. Rock beats scissors');  playerScore++;}
                 }
 
                 //If player chooses scissors
                 else{ 
                     if(computer === 'scissors'){return 'It\'s a tie. Try again'}
-                    else if(computer === 'rock'){return 'You loose. Rock beats Scissors'}
-                    else{return 'You win. Scissors beats Paper'}
+                    else if(computer === 'rock'){console.log('You loose. Paper beats Rock');  computerScore++;}
+                    else{console.log('You win. Rock beats scissors');  playerScore++;}
                 }
 
             }
 
-            const playerSelection = 'scissors';
+           function gamePoints(playerScore, computerScore){
+                
+                humanPoints = playerScore;
+                computerPoints = computerScore;
+
+                
+
+                return humanPoints, computerPoints;
+                
+            
+
+
+            }
+
+            const playerSelection = prompt("Choose Rock, Paper or Scissors","");
             const computerSelection = computerPlay();
+
             console.log(playRound(playerSelection, computerSelection));
+            console.log(gamePoints(playerScore,computerScore));
+
+            if (attempt === 5){
+                    if(playerScore>computerScore){
+                        console.log("You win!!");
+                    }else if (computerScore>playerScore){
+                        console.log("COmputer wins!!!")
+                    }
+                }
+
+
+
+           }
 
            }
 
